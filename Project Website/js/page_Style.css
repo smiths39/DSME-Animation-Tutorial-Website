@@ -1,0 +1,21 @@
+#animation_Box {
+
+    position: relative;
+    margin-top: 10px;
+    width: 750px;
+    height: 250px;
+}
+
+#animation_Box > canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#foreground_Style {
+    z-index: 1;
+}
+
+#background_Style {
+    background-color: lightblue;
+}

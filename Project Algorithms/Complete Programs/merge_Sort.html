@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Merge Sort </title>
+		
+		<meta charset="utf-8">
+		
+		<script src="d3.v3.js"></script>
+		<script src="merge_Sort.js"></script>
+		<script src="base_Class.js"></script>
+	</head>
+	<body>
+
+		<h2>Merge Sort</h2>
+		
+		<div class="centerPanel">
+			<div id="canvas" style="border: 2px solid black; width: 640px;"></div>
+			
+			<div class="controls">
+				<input type="submit" value="Start" onclick="merge_Program.start_Button()" style="padding: 1%"/>
+				<input type="submit" value="Reset" onclick="merge_Program.reset_Merge_Button()" style="padding: 1%"/>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			var merge_Program = new graphical_Application("#canvas", 640, 220);  
+		</script>
+    </body>
+</html>

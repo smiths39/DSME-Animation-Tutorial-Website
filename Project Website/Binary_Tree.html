@@ -1,0 +1,124 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv = "content-type" content = "text/html;charset = UTF-8" />
+		<meta name = "description" content = "Learn the fundamentals of Data Structures and Algorithms">
+		<title>DSME - Data Structure | Binary Search Tree</title>
+		<link href = 'css/style.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'css/normalize.css' rel = 'stylesheet' type = 'text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<script src='js/jquery-1.9.1.min.js'></script>
+    <script src='js/bst_Control.js'></script>
+    <script src='js/binary_Search_Tree.js'></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	</head>
+
+	<body>
+		<header role = "Logo and Nav Holder">
+			<div id = "navbar">
+			<a href = "index.html"><img src="img/test_img.png" alt="Site Logo" class="header_logo"></a>	
+				<div role = "Site Navigation Links" id = "top-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Data_Structures.html" class="selected">Data Structures</a></li>
+						<li><a href="Algorithms.html">Algorithms </a></li>
+						<li><a href="Screencasts.html">Screencasts</a></li>
+						<li><a href="Downloads.html">Downloads</a></li>
+						<li><a href="Contact.html">Contact Us</a></li>
+					</ul>	
+				</div>
+			</div>
+		</header>
+		
+		<div id = "wrapper">
+			<div id="Sidebar">
+				<nav role="Side Menu" id="side-nav">
+					<section role="Side Link Menu 1">
+						<ul class>
+							<li class = "Menu_Title">Data Structures</li>
+							<li><a href="Stack.html">Stack</a></li>
+							<li><a href="Queue.html">Queue</a></li>
+							<li><a href="Linked_List.html">Linked List</a></li>
+							<li><a href="Binary_Tree.html">Binary Search Tree</a></li>
+						</ul>
+					</section>
+
+					<section role="Side Link Menu 2">
+						<ul class>
+							<li class = "Menu_Title">Algorithms</li>
+							<li><a href="Bubble_Sort.html">Bubble Sort</a></li>
+							<li><a href="Selection_Sort.html">Selection Sort</a></li>
+							<li><a href="Insertion_Sort.html">Insertion Sort</a></li>
+							<li><a href="Merge_Sort.html">Merge Sort</a></li>
+							<li><a href="Heap_Sort.html">Heap Sort</a></li>
+							<li><a href="Quick_Sort.html">Quick Sort</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+    
+			<div id="main">
+				<section role = "Content part 1" id = "intro">	
+					<hgroup>
+						<h1 role="Welcome Message">Binary Search Tree</h1>
+						<h2>Definition</h2>
+					</hgroup>	
+						<p>A Binary Search Tree (BST) is essentially a collection of nodes. Each node contains a value and a link to the next node in the tree (either to the left or right). There are no duplicate nodes in a BST.</p>
+						<p>In the example below there is one central node, called the <strong>root</strong> node. The value of all nodes to the <em>left</em> of the root are less than its value. E.g. 11 is less than 15. The value of all nodes to the <em>right</em> of the root are greater than its value. E.g. 21 is greater than 15.</p>
+						<img src="img/BinaryTree_Ex1.png">
+						<p>When a child node has its own children, the same rules apply. Any node to the left will be less than the parent node. Any node to the right will be greater. As you can see in the example below, 5 is less than 11, but 13 is greater than 11.</p>
+						<img src="img/BinaryTree_Ex2.png">
+				</section>
+				
+				<section id = "middle">
+					<h2>Advantages</h2>
+					<p>When the tree is balanced, inserting and removing elements is very fast.</p>
+					<p>If you're at any particular node, finding the next one is easy as all child nodes are connected to their parent.</p>
+
+					<h2>Disadvantages</h2>
+					<p>The tree can lose its shape depending on the order in which the elements are added.</p>
+				</section>
+				
+
+				<section id = "end">
+					<h2>Implementation</h2>	
+					
+					<div id = "binary_wrapper">
+		        <div id='bst_animation_Box'>
+		            <canvas id='foreground_Style'></canvas>
+		            <canvas id='background_Style'></canvas>
+		        </div>
+	
+						<div class='control_Area'>
+				    	<button id='clear' value='Clear'>
+								<span>Clear values</span>
+							</button>
+				            
+				      <div>
+				      	<input id='comparison_Key' style="padding: 1%; width: 57%;" type="text" placeholder="Enter values (separated by a comma)"></input>
+				      </div>
+				    </div>
+
+			    </div>
+				</section>
+			</div>
+		</div>
+		
+		<footer role = "Relevant Info and Links" id="footer_Style">
+			<p>
+				<a href = "http://dcu.ie/"><img src="img/dcu_logo.gif" class="footer_logo" align="left"></a>	
+				
+				<a href="index.html">Home</a> | 
+				<a href="pdf/User Manual.pdf">User Manual</a> | 
+				<a href="pdf/Technical Specification.pdf">Technical Specification</a> | 
+				<a href="Contact.html">Contact Us</a>
+				
+			<p>
+				<i>2013 Data Structures Made Easy. Dublin City University, Glasnevin, Dublin 9, Ireland</i>
+			</p>
+		</footer> 
+
+	</body>
+</html>
+   

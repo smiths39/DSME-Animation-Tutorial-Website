@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv = "content-type" content = "text/html;charset = UTF-8" />
+		<meta name = "description" content = "Learn the fundamentals of Data Structures and Algorithms">
+		
+		<title>DSME - Algorithm | Selection Sort</title>
+		
+		<link href = 'css/style.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'css/normalize.css' rel = 'stylesheet' type = 'text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		
+		<script src="js/d3.v3.js"></script>
+		<script src="js/selection_Sort.js"></script>
+		<script src="js/base_Class_Animations.js"></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	</head>
+
+	<body>
+		<header role = "Logo and Nav Holder">
+			<div id = "navbar">
+			<a href = "index.html"><img src="img/test_img.png" alt="Logo" class="header_logo"></a>	
+				<div role = "Site Navigation Links" id = "top-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Data_Structures.html">Data Structures</a></li>
+						<li><a href="Algorithms.html" class="selected">Algorithms </a></li>
+						<li><a href="Screencasts.html">Screencasts</a></li>
+						<li><a href="Downloads.html">Downloads</a></li>
+						<li><a href="Contact.html">Contact Us</a></li>
+					</ul>	
+				</div>
+			</div>	
+		</header>
+		
+		<div id = "wrapper">
+			<div id="Sidebar">
+				<nav role="Side Menu" id="side-nav">
+					<section role="Linkset 1">
+						<ul class>
+							<li class = "Menu_Title">Data Structures</li>
+							<li><a href="Stack.html">Stack</a></li>
+							<li><a href="Queue.html">Queue</a></li>
+							<li><a href="Linked_List.html">Linked List</a></li>
+							<li><a href="Binary_Tree.html">Binary Search Tree</a></li>
+						</ul>
+					</section>
+
+					<section role="Linkset 2">
+						<ul class>
+							<li class = "Menu_Title">Algorithms</li>
+							<li><a href="Bubble_Sort.html">Bubble Sort</a></li>
+							<li><a href="Selection_Sort.html">Selection Sort</a></li>
+							<li><a href="Insertion_Sort.html">Insertion Sort</a></li>
+							<li><a href="Merge_Sort.html">Merge Sort</a></li>
+							<li><a href="Heap_Sort.html">Heap Sort</a></li>
+							<li><a href="Quick_Sort.html">Quick Sort</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+			
+			<div id="main">
+				<section role = "Content part 1" id = "intro">
+					<hgroup>
+						<h1 role="Welcome Message" style="font-family:Textile, cursive;" align="center"><i>Selection Sort</i></h1>
+						<h2>Definition</h2>
+					</hgroup>	
+		
+					<p>
+						Selection Sort, like Bubble Sort, is a relatively easy algorithm to understand and implement; however it is more efficient than Bubble Sort. 
+						When operating on large lists, the algorithm becomes less efficient; however in various circumstances discussed below, the algorithm can be regarded as the optimal choice.
+					</p>
+					<p>
+						Selection Sort essentially splits an array of numbers into two sub-lists, one sorted and one unsorted. 
+						Before the algorithms runs, the entire array is un-sorted. 
+						When the algorithm runs, it selects the highest element in the list, and places it at the start of the unsorted list.
+						After this, each list changes - the sorted sub-list grows, and the un-sorted list shrinks. 
+						Eventually the entire array becomes the sorted list.
+					</p>
+
+					<h2> Implementation </h2>
+					<p> Selection sort works as follows:</p>
+					<ul>		
+						<li>Locate the minimum element of the unsorted array.</li>
+						<li>Once located, assign the index of the minimum element into a minimum index variable.</li>
+						<li>Swap the minimum element into the first position within the array.</li>		
+						<li>Continually sort the remaining elements of the array, whilst excluding the previously sorted elements.</li>		
+						<li>Repeat steps until entire array is sorted.</li>
+					</ul>		
+
+					<h2>Example</h2>
+					<img src="img/SelectionSort_Ex1.png" alt="Selection Sort Diagram">
+					
+					<h2>Selection Sort Animation</h2>
+						<div>
+							<div id="canvas" style="border: 2px solid black; width: 600px;"></div>
+				
+							<div class="controls">
+								<input type="submit" value="Start" onclick="selection_Program.start_Button()" style="padding: 1%"/>
+								<input type="submit" value="Reset" onclick="selection_Program.reset_Selection_Button()" style="padding: 1%"/>
+							</div>
+						</div>
+
+						<script type="text/javascript">
+							var selection_Program = new graphical_Application("#canvas", 600, 220);  
+						</script>	
+				</section>
+				
+				<section id = "middle">
+					<h2>Functions</h2>
+					<p>Selection Sort is implemented by the following function:</p>
+						<ul>
+							<li>selection();</li>
+							<p>This function locates the minimum element within the array and swaps it with the element in the first position. The function selects the next element and locates the next minimum element within the array, whilst ignoring the previous sorted elements. The element is swapped with the element of the minimum index position.The remaining values are sorted using the same technique until all elements within the array are correctly sorted.</p>
+						</ul>
+						
+					<h2>Pseudocode</h2>
+					<pre class="prettyprint">
+function selection ( array arr, size ){
+	for index_1 ( 0 to size of array – 1 )
+		minimum = index_1
+
+		for index_2 ( index_1 to size of array )
+			minimum = index_2
+
+		swap ( index_1, minimum)
+}
+					</pre>
+					<script>prettyPrint();</script>
+				</section>
+				
+				<section id = "end"> 
+					<h2>Complexity</h2>
+					<p>
+						The complexity of selection sort is O(N ^ 2). 
+						Selection sort possesses the same complexity as bubble sort; however it performs greater than bubble sort.
+						The computational complexity of selection sort could be improved to O(N log N) by the use of heap sort. 
+						Heap sort improves the selection sort algorithm by using an implicit heap data structure, which will increase the speed of locating and removing the next lowest element within the array.
+					</p>
+
+					<h2>Advantages of Selection Sort</h2>
+					<p>
+						Selection sort is one of the most simplistic sorting algorithms to implement. 
+						As it is an in-place sorting algorithm, it does not require any additional storage space. 
+						This greatly improves the memory usage required by the sorting algorithm. 
+					</p>
+
+					<h2>Disadvantages of Selection Sort</h2>
+					<p>
+						Selection sort’s computational time complexity contributes to its disadvantages. 
+						Due to selection sort having a complexity of O(N ^ 2), it results in a poor performance upon a large array with unsorted elements. 
+						This is usually the reason why this sorting algorithm is rarely used in large applications.
+					</p>
+				</section>
+			</div>
+		</div>
+
+		<footer role = "Relevant Info and Links" id="footer_Style">
+			<p>
+				<a href = "http://dcu.ie/"><img src="img/dcu_logo.gif" class="footer_logo" align="left"></a>	
+				
+				<a href="index.html">Home</a> | 
+				<a href="pdf/User Manual.pdf">User Manual</a> | 
+				<a href="pdf/Technical Specification.pdf">Technical Specification</a> | 
+				<a href="Contact.html">Contact Us</a>
+				
+				<p>
+					<i>2013 Data Structures Made Easy. Dublin City University, Glasnevin, Dublin 9, Ireland</i>
+				</p>
+			</p>
+		</footer>    
+	</body>
+</html>

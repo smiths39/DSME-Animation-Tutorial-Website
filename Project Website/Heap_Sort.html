@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv = "content-type" content = "text/html;charset = UTF-8" />
+		<meta name = "description" content = "Learn the fundamentals of Data Structures and Algorithms">
+	
+		<title>DSME - Algorithm | Heap Sort</title>
+
+		<link href = 'css/style.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'css/normalize.css' rel = 'stylesheet' type = 'text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	</head>
+
+	<body>
+		
+		<header role = "Logo and Nav Holder">
+			<div id = "navbar">
+			<a href = "index.html"><img src="img/test_img.png" alt="Logo" class="header_logo"></a>	
+				<div role = "Site Navigation Links" id = "top-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Data_Structures.html">Data Structures</a></li>
+						<li><a href="Algorithms.html" class="selected">Algorithms </a></li>
+						<li><a href="Screencasts.html">Screencasts</a></li>
+						<li><a href="Downloads.html">Downloads</a></li>
+						<li><a href="Contact.html">Contact Us</a></li>
+					</ul>	
+				</div>
+			</div>	
+		</header>
+		
+		<div id = "wrapper">
+			<div id="Sidebar">
+				<nav role="Side Menu" id="side-nav">
+					<section role="Linkset 1">
+						<ul class>
+							<li class = "Menu_Title">Data Structures</li>
+							<li><a href="Stack.html">Stack</a></li>
+							<li><a href="Queue.html">Queue</a></li>
+							<li><a href="Linked_List.html">Linked List</a></li>
+							<li><a href="Binary_Tree.html">Binary Search Tree</a></li>
+						</ul>
+					</section>
+
+					<section role="Linkset 2">
+						<ul class>
+							<li class = "Menu_Title">Algorithms</li>
+							<li><a href="Bubble_Sort.html">Bubble Sort</a></li>
+							<li><a href="Selection_Sort.html">Selection Sort</a></li>
+							<li><a href="Insertion_Sort.html">Insertion Sort</a></li>
+							<li><a href="Merge_Sort.html">Merge Sort</a></li>
+							<li><a href="Heap_Sort.html">Heap Sort</a></li>
+							<li><a href="Quick_Sort.html">Quick Sort</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+    
+			<div id="main">
+				<section role = "Content part 1" id = "intro">
+				<hgroup>	
+					<h1 role="Welcome Message" style="font-family:Textile, cursive;" align="center"><i>Heap Sort</i></h1>
+					<h2>Definition</h2>
+				</hgroup>	
+				
+				<p>
+					Heap sort was invented by J.R.J. Williams. 
+					It is a comparison sorting algorithm. 
+					Heap sort sorts a variation of elements by implementing them in a binary tree format, which in this case is referred to as the heap. 
+					It sorts the elements by interchanging the root node with right most value in the heap. 
+					The heap is completely balanced once no child node has a value that is greater than the value of its parent node.
+				</p>
+
+				<h2> Implementation </h2>
+				<p>
+					Heap sort works as follows:
+				</p>
+		
+				<ul>		
+					<li>Remove the root node and replace it with the rightmost node.</li>
+					<li>Store parent node in a corresponding array.</li>
+					<li>Restore the heap.</li>		
+					<li>Reapeat the above steps until all elements in the heap are sorted.</li>		
+				</ul>	
+				
+				<h2>Example</h2>
+				<img src="img/HeapSort_Ex1.png" alt="Heap Sort Diagram">
+				</section>
+				
+				<section id = "middle">
+				
+				<h2>Functions</h2>
+				<p>
+					Heap Sort is implemented by the following functions
+				</p>
+				<ul>
+					<li><b>max_Heap();</b></li>
+					<p>
+						This function converts the heap, represented as a tree, into a maximum heap. 
+						It traverses the tree beginning at the indexed node to the leaves. 
+						Each time the function compares the parent node with the corresponding left and right children nodes, the maximum of the nodes takes the position of the parent node.
+					</p>
+					
+					<li><b>build_Heap();</b></li>
+					<p>
+						This function calls the max_Heap() function for all non-leaf nodes. 
+						When the function returns, the corresponding array successfully becomes a max-heap.
+					</p>
+					
+					<li><b>heap_Sort();</b></li>
+					<p>
+						This function calls the build_Heap() function on the corresponding array. 
+						When the build_Heap() function is complete, the maximum element of the heap is replaced by the last element of the heap. 
+						The max_Heap() function is called from the root node. 
+						This process is continued until the heap contains no elements and the corresponding array is sorted.
+					</p>
+				</ul>
+
+				<pre class="prettyprint">
+function max_Heap ( array arr, integer, size )
+	left = 2 * left + 1
+	right = 2 * right + 2
+
+	if left < size && arr[left] > arr[integer]
+		max = left
+	else
+		max = integer
+
+	if right < size && arr[right] > arr[max]
+		max = right
+	
+	if max != integer
+		swap  ( integer, max )
+		max_Heap ( max, size )
+
+function build_Heap ( array arr, size )
+	for half size to 0
+		max_Heap ( arr, index, size )
+
+
+function heap_Sort ( array arr, size )
+	build_Heap ( arr, size )
+	
+	for size to 0
+		swap ( index, 0 )
+		decrement size
+		max_Heap ( arr, 0, size )
+				</pre>
+				<script>prettyPrint();</script>
+				</section>
+				
+				<section id = "end">
+				<h2>Complexity</h2>
+				<p>
+					The optimal time complexity of heap sort is O(N log N), which is also its worst and average time complexity. 
+					Heap sort has a space complexity of O(1). 
+					Heap sort suffers from poor stability and is therefore considered to be an unstable algorithm.
+				</p>
+
+				<h2>Advantages of Heap Sort</h2>
+				<p>
+					Heap sort is one of the fastest sorting algorithms created. 
+					Heap sort does not use recursion, thus limiting the complexity range required.
+					The sorting process computes equally fast for any input order. 
+					This is primarily the reason why the best, average and worst time complexities are all the same. 
+					<br><br>
+					Due to no recursion being implemented for heap sort, many developers consider it to be faster than Quicksort and other algorithms, in certain circumstances. 
+					In situations where timing is essential, heap sort is the optimal choice of algorithms.</p>
+				</p>
+				
+				<h2>Disadvantages of Heap Sort</h2>
+				<p>
+					Heap sort and Quicksort are considered to be the main competitors of fastest sorting algorithms. 
+					However, due to Quicksort possessing a better locality of reference, it is primarily chosen as the optimal sorting algorithm. 
+					The possibility of correct values being close together is usually taken into consideration and therefore Quicksort is regarded as the best choice, as it is faster than heap sort in that situation. 
+				</p>
+				</section>
+			</div>
+		</div>
+
+		<footer role = "Relevant Info and Links" id="footer_Style">
+			<p>
+				<a href = "http://dcu.ie/"><img src="img/dcu_logo.gif" class="footer_logo" align="left"></a>	
+				
+				<a href="index.html">Home</a> | 
+				<a href="pdf/User Manual.pdf">User Manual</a> | 
+				<a href="pdf/Technical Specification.pdf">Technical Specification</a> | 
+				<a href="Contact.html">Contact Us</a>
+				
+			<p>
+				<i>2013 Data Structures Made Easy. Dublin City University, Glasnevin, Dublin 9, Ireland</i>
+			</p>
+		</footer>    
+	</body>
+</html>
+   

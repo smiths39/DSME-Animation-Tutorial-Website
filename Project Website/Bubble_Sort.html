@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv = "content-type" content = "text/html;charset = UTF-8" />
+		<meta name = "description" content = "Learn the fundamentals of Data Structures and Algorithms">
+		
+		<title>DSME - Algorithm | Bubble Sort</title>
+		
+		<link href = 'css/style.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'css/normalize.css' rel = 'stylesheet' type = 'text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		
+		<script src="js/d3.v3.js"></script>
+		<script src="js/bubble_Sort.js"></script>
+		<script src="js/base_Class_Animations.js"></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	</head>
+
+	<body>
+		<header role = "Logo and Nav Holder">
+			<div id = "navbar">
+			<a href = "index.html"><img src="img/test_img.png" alt="Logo" class="header_logo"></a>	
+				<div role = "Site Navigation Links" id = "top-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Data_Structures.html">Data Structures</a></li>
+						<li><a href="Algorithms.html" class="selected">Algorithms </a></li>
+						<li><a href="Screencasts.html">Screencasts</a></li>
+						<li><a href="Downloads.html">Downloads</a></li>
+						<li><a href="Contact.html">Contact Us</a></li>
+					</ul>	
+				</div>
+			</div>		
+		</header>
+		
+		<div id = "wrapper">
+			<div id="Sidebar">
+				<nav role="Side Menu" id="side-nav">
+					<section role="Linkset 1">
+						<ul class>
+							<li class = "Menu_Title">Data Structures</li>
+							<li><a href="Stack.html">Stack</a></li>
+							<li><a href="Queue.html">Queue</a></li>
+							<li><a href="Linked_List.html">Linked List</a></li>
+							<li><a href="Binary_Tree.html">Binary Search Tree</a></li>
+						</ul>
+					</section>
+
+					<section role="Linkset 2">
+						<ul class>
+							<li class = "Menu_Title">Algorithms</li>
+							<li><a href="Bubble_Sort.html">Bubble Sort</a></li>
+							<li><a href="Selection_Sort.html">Selection Sort</a></li>
+							<li><a href="Insertion_Sort.html">Insertion Sort</a></li>
+							<li><a href="Merge_Sort.html">Merge Sort</a></li>
+							<li><a href="Heap_Sort.html">Heap Sort</a></li>
+							<li><a href="Quick_Sort.html">Quick Sort</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+    
+			<div id="main">
+				<section role = "Content part 1" id = "intro">
+					<hgroup>
+						<h1 role="Welcome Message" style="font-family:Textile, cursive;" align="center"><i>Bubble Sort</i></h1>
+						<h2> Definition </h2>
+					</hgroup>	
+					<p>
+						Bubble sort is a comparison sorting algorithm which will run through an array and compare elements in pairs. 
+						If a pair of elements are incorrectly ordered, then the algorithm will swap those elements. 
+						This procedure is repeated until no more swaps are required, thus indicating that the list is correctly sorted. 
+					</p>
+
+					<h2> Example </h2>
+					<img src="img/BubbleSort_Ex1.png" width="289px" height="405px" alt="Bubble Sort Diagram">
+
+					<h2>Animation</h2>
+					<div>
+						<div id="canvas" style="border: 2px solid black; width: 600px;"></div>
+			
+						<div>
+							<input type="submit" value="Start" onclick="bubble_Program.start_Button()" style="padding: 1%"/>
+							<input type="submit" value="Reset" onclick="bubble_Program.reset_Bubble_Button()" style="padding: 1%"/>
+						</div>
+					</div>
+
+					<script type="text/javascript">
+						var bubble_Program = new graphical_Application("#canvas", 600, 220);  
+					</script>
+
+					<h2> Implementation </h2>
+					<p>Bubble sort works as follows:</p>
+					<ul>
+						<li>Take the first two elements of an array and place the larger element at the higher index.</li> 
+						<li>This process is repeated until the largest element is not reached at the final index.</li>
+						<li>Start again at first index of the array up to n-1 index.</li>
+						<li>This process is repeated until all elements are correctly sorted.</li>
+					</ul>	
+				</section>
+					
+				<section id = "middle">
+					<h2> Functions </h2>
+					<p>Implementing Bubble Sort in a program can be done within one function called bubble();:</p>
+					<ul>
+						<li>bubble();</li>
+						<p>This function takes the unsorted array and traverses it from 0 to the length-1 index of the array. The selected element is compared to the next element and the elements are swapped if the next element is of a lesser value. The largest value is eventually placed at the largest index. This process repeats until all the elements are correctly sorted.</p>
+					</ul>
+					
+					<h2>Pseudocode</h2>
+					<pre class="prettyprint">
+function bubble ( array arr, size ){
+	for index_1 ( 0 to size of arr )
+		for index_2 ( 1 to size of arr – index_1 )
+			if index_2 – 1 of arr > index_2 of arr 
+				swap ( arr, index_2 – 1, index_2 )
+}
+					</pre>
+					
+					<script>prettyPrint();</script>
+				</section>
+				
+				<section id = "end">
+					<h2> Complexity </h2>
+					<p>
+						In its best case, time complexity of bubble sort is O(N). 
+						This performance can only be achieved over a currently sorted list. 
+						Bubble sort has a average and worst-case time complexity of O(N ^ 2). 
+						N is based on the amount of sorted items. 
+						The positioning of the elements determines the performance of the algorithm. 
+						A large element at the beginning of the list does not affect the performance of the algorithm. 
+						However, small elements at the end of the list take a considerable amount of swapping time, thus affecting the time performance.
+					</p>
+																																																					
+					<h2> Advantages of using Bubble Sort </h2>
+					<p> 
+						Bubble sort is a simplistic algorithm to implement. 
+						There is minimal overhead due to data being sorted in-place. 
+						When data is correctly sorted, the data is in memory and ready to be processed efficiently. 
+					</p>
+
+					<h2>Disadvantages of using Bubble Sort</h2>
+					<p>
+						Bubble sort’s computational time complexity is the source of its disadvantages. 
+						The average time of completion increases vastly as the number of unsorted elements within the list increases. 
+						The sorting process requires multiple passes over the data, which imposes an inefficient completion time.
+					</p>
+				</section>	
+			</div>
+		</div>
+
+		<footer role = "Relevant Info and Links" id="footer_Style">
+			<p>
+				<a href = "http://dcu.ie/"><img src="img/dcu_logo.gif" class="footer_logo" align="left"></a>	
+				
+				<a href="index.html">Home</a> | 
+				<a href="pdf/User Manual.pdf">User Manual</a> | 
+				<a href="pdf/Technical Specification.pdf">Technical Specification</a> | 
+				<a href="Contact.html">Contact Us</a>
+				
+				<p>
+					<i>2013 Data Structures Made Easy. Dublin City University, Glasnevin, Dublin 9, Ireland</i>
+				</p>
+			</p>
+		</footer> 
+	</body>
+</html>

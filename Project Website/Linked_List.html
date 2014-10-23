@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv = "content-type" content = "text/html;charset = UTF-8" />
+		<meta name = "description" content = "Learn the fundamentals of Data Structures and Algorithms">
+		
+		<title>DSME - Data Structure | Linked List</title>
+		
+		<link href = 'css/style.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'css/normalize.css' rel = 'stylesheet' type = 'text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		
+		<script src='js/jquery-1.9.1.min.js'></script>
+		<script src='js/base_Class_Data_Structures.js'></script>
+		<script src='js/linkedList.js'></script>
+
+	</head>
+
+	<body>
+		<header role = "Logo and Nav Holder">
+			<div id = "navbar">
+			<a href = "index.html"><img src="img/test_img.png" alt="Logo" class="header_logo"></a>	
+				<div role = "Site Navigation Links" id = "top-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Data_Structures.html" class="selected">Data Structures</a></li>
+						<li><a href="Algorithms.html">Algorithms </a></li>
+						<li><a href="Screencasts.html">Screencasts</a></li>
+						<li><a href="Downloads.html">Downloads</a></li>
+						<li><a href="Contact.html">Contact</a></li>
+					</ul>	
+				</div>
+			</div>		
+		</header>
+		
+		<div id = "wrapper">
+			<div id="Sidebar">
+				<nav role="Side Menu" id="side-nav">
+					<section role="Linkset 1">
+						<ul class>
+							<li class = "Menu_Title">Data Structures</li>
+							<li><a href="Stack.html">Stack</a></li>
+							<li><a href="Queue.html">Queue</a></li>
+							<li><a href="Linked_List.html">Linked List</a></li>
+							<li><a href="Binary_Tree.html">Binary Search Tree</a></li>
+						</ul>
+					</section>
+
+					<section role="Linkset 2">
+						<ul class>
+							<li class = "Menu_Title">Algorithms</li>
+							<li><a href="Bubble_Sort.html">Bubble Sort</a></li>
+							<li><a href="Selection_Sort.html">Selection Sort</a></li>
+							<li><a href="Insertion_Sort.html">Insertion Sort</a></li>
+							<li><a href="Merge_Sort.html">Merge Sort</a></li>
+							<li><a href="Heap_Sort.html">Heap Sort</a></li>
+							<li><a href="Quick_Sort.html">Quick Sort</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+    
+			<div id="main">
+				<section role = "Content part 1" id = "intro">	
+					<h1 role="Welcome Message" style="font-family:Textile, cursive;" align="center"><i>Linked List</i></h1>
+					<h2>Definition</h2>
+			
+					<p>
+						Linked Lists come in two forms: Singly Linked List, and Doubly Linked List.
+					</p>
+					<p>
+						A Singly Linked List is an ordered series of nodes. 
+						Each of these nodes contains a <strong>value</strong>, and <strong>pointer</strong> to the next node in the list. 
+						In the case of the last node, there is a null pointer. 
+						This simply means we have reached the end of the list and there are no more nodes left.
+					</p>
+					
+					<p>
+						For a doubly linked list, the difference is that it contains a pointer to the previous node also. 
+						See the examples below to get a visual interpretation of how they differ.
+					</p>
+					
+					<h2>How they work</h2>
+					<p>
+						In the example below we have a singly linked list with one node, which has a value "3" and a pointer to null. 
+						Also present is another singly linked list with many nodes "linked" together. 
+						The last node also points to null because there are no more nodes currently present.
+					</p>
+					<p>
+						In the case of the doubly linked list with one element the left pointer is null and so is the right pointer.
+						For the doubly linked list with multiple elements, the left pointers point to the prevous node, and the right pointers to the next node.
+					</p>
+		
+					<p>
+						When dealing with singly linked lists that contain multiple nodes, the first node is referred to as the "head" and the last node is refered to as the "tail".
+					</p>
+					
+					<img src="img/SinglyLinked_Ex.png" alt = "Example of Linked List">
+					<img src="img/DoublyLinked_Ex.png">
+					
+					<h2>Adding elements to a list</h2>
+					<p>
+						The first task to do is to check if the head of the list is equal to null - this means that the list is currently empty. 
+						After we add our new node in, it will be both the head and tail of the list.
+					</p>
+					<p>
+						If this is not the case we simply add the node at the tail of the list and update the tail (the node we just added is now the tail)
+					</p>
+					
+					<img src="img/LinkedListAdd.png">
+					<h2>Animation</h2>
+					
+					<div id = "animation_wrapper">	
+						<div id='animation_Box'>
+							<canvas id='foreground_Style'></canvas>
+							<canvas id='background_Style'></canvas>
+						</div>
+						
+						<div>
+							<h3> Insertion </h3>
+										
+							<button type="button" id="insert_First_Key" style="padding: 1%">
+								<span>Insert First</span>
+							</button>
+										
+							<input type="text" id="first_Value" style="padding: 1%" placeholder="Enter a value:">
+									 
+							<br><br>
+										
+							<button type="button" id="insert_Last_Key" style="padding: 1%;">
+								<span>Insert Last</span>
+							</button>
+										
+							<input type="text" id="last_Value" style="padding: 1%" placeholder="Enter a value:">
+									
+							<br>
+							<br>
+										
+							<button type="button" id="insert_Index_Key" style="padding: 1%">
+								<span>Insert Index</span>
+							</button>
+										
+							<input type="text" id="index_Value" style=" padding: 1%" placeholder="Enter a value:">
+							<input type="text" id="index_Location" style="padding: 1%" placeholder="Enter an index:">
+						</div>
+							
+						<div>
+							<h3> Deletion </h3>
+										
+							<button type="button" id="remove_First_Key" style="padding: 1%" disabled="disabled">
+								<span>Remove First</span>
+							</button>
+											
+							<br>
+											
+							<button type="button" id="remove_Last_Key" style="padding: 1%" disabled="disabled">
+								<span>Remove Last</span>
+							</button>
+						</div>				
+					</div>
+
+				</section>
+				
+				<section id = "middle">
+					<hgroup>
+						<h2>Complexity</h2>
+						<p>
+							The time complexities of functions for a linked list with n nodes are the following:
+							<ul>
+								<b>O(1)</b>
+			
+								<li>size</li>
+								<li>addFirst</li>
+								<li>removeFirst</li>
+								<li>add (doubly linked list)</li>
+								<li>remove (doubly linked list)</li>
+								<li>addLast (doubly linked list)</li>
+								<li>removeLast (doubly linked list)</li>
+							</ul>
+			
+							<ul><b>O(N)</b>
+								<li>get</li>
+								<li>remove</li>
+								<li>index</li>
+								<li>add (singly linked list)</li>
+								<li>remove (singly linked list)</li>
+								<li>addLast (singly linked list)</li>
+								<li>removeLast (singly linked list)</li>
+							</ul>
+					</hgroup>
+					
+					<hgroup>
+						<h2>Advantages</h2>
+						<h3><i>Singly Linked Lists</i></h3>
+					</hgroup>
+					<p>
+						As there is only one pointer per node, we save space storing and retrieving elements.
+						The list uses only as much memory as it requires, and will grow arbitrarily in size.
+					</p>
+					
+					<h3><i>Doubly Linked Lists</i></h3>
+					<p>
+						Because it has both left and right pointers, a doubly linked list can traverse in both directions. 
+						This bi-directional feature increases performance for storing and retrieving elements. 
+					</p>
+					
+					<hgroup>
+						<h2>Disadvantages</h2>
+						<h3><i>Singly Linked Lists</i></h3>
+					</hgroup>	
+					<p>
+						A singly linked list can only traverse in one direction, thus limiting its performance ability. 
+						You cannot go back to a previous node, you must restart from the beginning.
+					</p>
+					
+					<h3><i>Doubly Linked Lists</i></h3>
+					<p>
+						As there are two pointers in a doubly linked list, it takes up more memory. 
+						Traversing in both directions takes more time when updating pointers.
+					</p>
+				</section>
+				
+
+				<section id = "end">
+					<h2>Implementation</h2>
+					<p>A singly linked list isn't too difficult to implement. We're going to break it up into its various methods and desribe each one.</p>
+
+					<li><strong>LinkedList&#60;Object&#62;()</strong></li>
+					<p>
+						Firstly, we have a constructor - which creates an empty list and holds the object type.
+					</p>
+					
+					<li><strong>add(Object obj)</strong></li>
+					<p>
+						Next, we have a function to add elements to the list.
+					</p>
+					
+					<li><strong>add(int index, Object obj)</strong></li>
+					<p>
+						This add function will insert the element at a specific position in the list, indicated by the index. 
+						If the index is out of range, the function throws an exception.
+					</p>
+					
+					<li><strong>size()</strong></li>
+					<p>
+						The size function will return the amount of elements in the list.
+					</p>
+					
+					<li><strong>indexOf(Object obj)</strong></li>
+					<p>
+						This function will return the index of of the element in the list.
+					</p>
+					
+					<li><strong>get(int index)</strong></li>
+					<p>
+						The get method will return an element in the list specified by its index.
+					</p>
+					
+					<li><strong>addFirst(Object obj)</strong></li>
+					<p>
+						This function will insert an element at the beginning of the list.
+					</p>
+					
+					<li><strong>addLast(Object obj)</strong></li>
+					<p>
+						Respectively, this function will add the element to the end of the list.
+					</p>
+					
+					<li><strong>remove(int index)</strong></li>
+					<p>
+						The remove function does as it says, it will remove an element at a specified index in the list.
+					</p>
+					
+					<li><strong>removeLast()</strong></li>
+					<p>
+						Finally, this function will remove the element located at the tail of the list.
+					</p>
+					
+					</section>
+			</div>
+		</div>
+		
+		<footer role = "Relevant Info and Links" id="footer_Style">
+			<p>
+				<a href = "http://dcu.ie/"><img src="img/dcu_logo.gif" class="footer_logo" align="left"></a>	
+				
+				<a href="index.html">Home</a> | 
+				<a href="pdf/User Manual.pdf">User Manual</a> | 
+				<a href="pdf/Technical Specification.pdf">Technical Specification</a> | 
+				<a href="Contact.html">Contact Us</a>
+				
+			<p>
+				<i>2013 Data Structures Made Easy. Dublin City University, Glasnevin, Dublin 9, Ireland</i>
+			</p>
+		</footer> 
+
+
+	</body>
+</html>
+   

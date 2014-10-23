@@ -1,0 +1,205 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv = "content-type" content = "text/html;charset = UTF-8" />
+		<meta name = "description" content = "Learn the fundamentals of Data Structures and Algorithms">
+		
+		<title>DSME - Algorithm | Quick Sort</title>
+		
+		<link href = 'css/style.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'css/normalize.css' rel = 'stylesheet' type = 'text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		
+		<script src="js/d3.v3.js"></script>
+		<script src="js/quick_Sort.js"></script>
+		<script src="js/base_Class_Animations.js"></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	</head>
+
+	<body>
+		<header role = "Logo and Nav Holder">
+			<div id = "navbar">
+			<a href = "index.html"><img src="img/test_img.png" alt="Logo" class="header_logo"></a>	
+				<div role = "Site Navigation Links" id = "top-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Data_Structures.html">Data Structures</a></li>
+						<li><a href="Algorithms.html" class="selected">Algorithms </a></li>
+						<li><a href="Screencasts.html">Screencasts</a></li>
+						<li><a href="Downloads.html">Downloads</a></li>
+						<li><a href="Contact.html">Contact Us</a></li>
+					</ul>	
+				</div>
+			</div>	
+		</header>
+		
+		<div id = "wrapper">
+			<div id="Sidebar">
+				<nav role="Side Menu" id="side-nav">
+					<section role="Linkset 1">
+						<ul class>
+							<li class = "Menu_Title">Data Structures</li>
+							<li><a href="Stack.html">Stack</a></li>
+							<li><a href="Queue.html">Queue</a></li>
+							<li><a href="Linked_List.html">Linked List</a></li>
+							<li><a href="Binary_Tree.html">Binary Search Tree</a></li>
+						</ul>
+					</section>
+
+					<section role="Linkset 2">
+						<ul class>
+							<li class = "Menu_Title">Algorithms</li>
+							<li><a href="Bubble_Sort.html">Bubble Sort</a></li>
+							<li><a href="Selection_Sort.html">Selection Sort</a></li>
+							<li><a href="Insertion_Sort.html">Insertion Sort</a></li>
+							<li><a href="Merge_Sort.html">Merge Sort</a></li>
+							<li><a href="Heap_Sort.html">Heap Sort</a></li>
+							<li><a href="Quick_Sort.html">Quick Sort</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+    
+			<div id="main">
+				<section role = "Content part 1" id = "intro">
+				<hgroup>	
+					<h1 role="Welcome Message" style="font-family:Textile, cursive;" align="center"><i>Quicksort</i></h1>
+					<h2>Definition</h2>
+				</hgroup>	
+		
+				<p>
+					Quicksort is a sorting algorithm that was created by C. A. R. Hoare. 
+					It is a sorting algorithm that operates by recursively partitioning elements, which are to be sorted into two separate sets. 
+					Quicksort is based on the ‘divide and conquer’ principal. 
+				</p>
+
+				<h2>Implementation</h2>
+				<p>
+					Quicksort works as follows:
+				</p>
+				
+				<ul>
+					<li>Select an element of the array to be a pivot.</li>
+					<li>Divide the remaining elements into two partitions.
+						<ul>
+							<li>Elements that are less than the pivot are to be placed in the first partition.</li>
+							<li>Elements that are greater than the pivot are to be placed in the second partition.</li>
+						</ul>
+					</li>
+					<li>Sort both partitions recursively.</li>
+					<li>Combine the following in order:
+						<ul>
+							<li>The first(now sorted) partition.</li>
+							<li>The pivot.</li>
+							<li>The second(now sorted) partition.</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h2>Example</h2>
+				<img src="img/QuickSort_Ex1.png" alt="Quick Sort Diagram" width="457px" height="371px">
+				<h2>QuickSort</h2>
+					<div>
+						<div id="canvas" style="border: 2px solid black; width: 600px;"></div>
+			
+						<div>
+							<input type="submit" value="Start" onclick="quick_Program.start_Button()" style="padding: 1%"/>
+							<input type="submit" value="Reset" onclick="quick_Program.reset_Quick_Button()" style="padding: 1%"/>
+						</div>
+					</div>
+
+					<script type="text/javascript">
+						var quick_Program = new graphical_Application("#canvas", 600, 220);  
+					</script>
+				</section>
+				
+				<section id = "middle">
+				<h2>Functions</h2>
+				<p>Quicksort is implemented by the following function:</p>
+				<ul>
+					<li>quick();</li>
+					<p>
+						This function selects an element from the array, which is called the pivot. 
+						The remaining elements are compared from left to right until a greater element is located and the values are swapped. 
+						The same comparison technique is repeated from the right to left with the pivot.
+						When a smaller element is located, the values are swapped. 
+						This process is repeated until all elements that are less than the pivot are positioned before the pivot and all the elements that are greater than the pivot are positioned after the pivot. 
+						Partitioning takes place and the function recursively sorts the sub-array’s of lesser and greater elements.
+					</p>
+				</ul>
+
+				<h2>Pseudocode</h2>
+				<pre class="prettyprint">
+function quick ( array arr, low, high ){
+	lo = low
+	hi = high
+	
+	if lo is greater than hi
+		return
+
+	pivot = midpoint of arr
+
+	while lo is less than hi 	
+		while arr[lo] is less than pivot
+			increment lo
+
+		while arr[hi] is greater than pivot
+			decrement hi			
+
+	if hi is less than lo
+		swap ( hi, lo )
+
+	quick ( arr, low, lo )
+	quick ( arr, if lo equals low then increment lo else lo, high ) 
+				</pre>
+				<script>prettyPrint();</script>
+				</section>
+				
+				<section id = "end">
+				<h2>Complexity</h2>
+				<p>
+					The optimal time complexity of Quicksort is O(N).
+					This is achieved by dividing the array into two sets that are nearly identical. 
+					If the array contains n elements, then the first process will need O(N).
+					Sorting the remaining sub-arrays will result in the average time complexity of O(N Log N). 
+					<br><br>
+					The worst case time complexity is O(N^2). 
+					This arises if the sorting algorithm selects only one element in each iteration.
+				</p>
+
+				<h2>Advantages of Quicksort</h2>
+				<p>
+					Quicksort is one of the fastest algorithms to be used and is believed to be the best sorting algorithm. 
+					This is due to the fact that it is capable of sorting a large list of items in a satisfactory amount of time.
+					<br><br>					
+					Quicksort does not require additional memory as it is processes in-place (sorting within the array). 
+					Developers regarded this as a huge beneficiary, in terms of memory storage.
+				</p>
+
+				<h2>Disadvantages of Quicksort</h2>
+				<p>
+					Quicksort’s worst-case time complexity contributes mainly to its disadvantages. 
+					Quicksort’s worst-case performance resembles the average performances of other sorts, such as selection sort, insertion sort and bubble sort.
+				</p>
+
+				</section>
+			</div>
+		</div>
+
+		<footer role = "Relevant Info and Links" id="footer_Style">
+			<p>
+				<a href = "http://dcu.ie/"><img src="img/dcu_logo.gif" class="footer_logo" align="left"></a>	
+				
+				<a href="index.html">Home</a> | 
+				<a href="pdf/User Manual.pdf">User Manual</a> | 
+				<a href="pdf/Technical Specification.pdf">Technical Specification</a> | 
+				<a href="Contact.html">Contact Us</a>
+				
+				<p>
+					<i>2013 Data Structures Made Easy. Dublin City University, Glasnevin, Dublin 9, Ireland</i>
+				</p>
+			</p>
+		</footer>    
+	</body>
+</html>
+   

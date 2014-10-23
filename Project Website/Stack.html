@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv = "content-type" content = "text/html;charset = UTF-8" />
+		<meta name = "description" content = "Learn the fundamentals of Data Structures and Algorithms">
+		
+		<title>DSME - Data Structure | Stack</title>
+		
+		<link href = 'css/style.css' rel = 'stylesheet' type = 'text/css'>
+		<link href = 'css/normalize.css' rel = 'stylesheet' type = 'text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		
+		<script src='js/jquery-1.9.1.min.js'></script>
+		<script src='js/base_Class_Data_Structures.js'></script>
+		<script src='js/stack.js'></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	</head>
+
+	<body>
+		<header role = "Logo and Nav Holder">
+			<div id = "navbar">
+			<a href = "index.html"><img src="img/test_img.png" alt="Logo" class="header_logo"></a>	
+				<div role = "Site Navigation Links" id = "top-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Data_Structures.html" class="selected">Data Structures</a></li>
+						<li><a href="Algorithms.html">Algorithms </a></li>
+						<li><a href="Screencasts.html">Screencasts</a></li>
+						<li><a href ="Downloads.html">Downloads</a></li>
+						<li><a href="Contact.html">Contact Us</a></li>
+					</ul>	
+				</div>
+			</div>		
+		</header>
+		
+		<div id = "wrapper">
+			<div id="Sidebar">
+				<nav role="Side Menu" id="side-nav">
+					<section role="Linkset 1">
+						<ul class>
+							<li class = "Menu_Title">Data Structures</li>
+							<li><a href="Stack.html">Stack</a></li>
+							<li><a href="Queue.html">Queue</a></li>
+							<li><a href="Linked_List.html">Linked List</a></li>
+							<li><a href="Binary_Tree.html">Binary Search Tree</a></li>
+						</ul>
+					</section>
+
+					<section role="Linkset 2">
+						<ul class>
+							<li class = "Menu_Title">Algorithms</li>
+							<li><a href="Bubble_Sort.html">Bubble Sort</a></li>
+							<li><a href="Selection_Sort.html">Selection Sort</a></li>
+							<li><a href="Insertion_Sort.html">Insertion Sort</a></li>
+							<li><a href="Merge_Sort.html">Merge Sort</a></li>
+							<li><a href="Heap_Sort.html">Heap Sort</a></li>
+							<li><a href="Quick_Sort.html">Quick Sort</a></li>
+						</ul>
+					</section>
+				</nav>
+			</div>
+    
+			<div id="main">
+				<section role = "Content part 1" id = "intro">
+					<hgroup>	
+					<h1 role="Welcome Message" style="font-family:Textile, cursive;" align="center"><i>Stack</i></h1>
+					<h2>Definiton</h2>
+					</hgroup>	
+					
+					<p>
+						A stack is a non-linear data structure which facilitates the addition and removal of data. 
+						It operates on a Last in, First out basis.
+					</p>
+					
+					<p>
+						For example, if you have the the following sequence of integers - 1,2,3,4,5 - and you add them to a stack in that precise order, 
+						upon the decision to remove an element - the number 5 (last element inserted), will be the first element removed.
+					</p>
+					
+					<p>
+						Similiar to Queues, a Stack come in two forms - bounded and unbounded.
+					</p>
+					
+					<p>
+						A <strong>bounded</strong> stack is one which has a maximum size limit. 
+						It contains a sequence of elements which increment or decrement at one end of the stack only.
+					</p>
+					
+					<p>
+						An <strong>unbounded</strong> stack is the same as above, except it has no maximum size. 
+						It can grow to cater for as many inputs as possible.
+					</p>
+
+					<h2>Animation</h2>
+					<div id = "animation_wrapper">
+						<div id='animation_Box'>
+							<canvas id='foreground_Style'></canvas>
+							<canvas id='background_Style'></canvas>
+						</div>
+				
+						<div class='control_Area'>
+							<button id="push_Key" style="padding: 1%", type="submit">
+								<span>Push</span>
+							</button>
+							
+							<input type="text" id="value" style="width: 10%; padding: 1%" placeholder="Enter a value:"> 
+							<br>
+
+							 <button id='pop_Key' value='Clear' style="padding: 1%"disabled="disabled">
+								<span>Pop</span>
+							</button>
+						</div>
+					</div>
+
+				</section>
+				
+				<section id = "middle">
+				<h2>Complexity</h2>
+				<p>
+					The only considerations to be made in relation to the complexity of a stack are the	
+					operations it performs. The operations of pushing and popping possess a time complexity of O(1).
+				</p>
+				
+				<h2>Advantages</h2>
+				<p>
+					Compared to other data structures, it is easily implemented because there are limited operations which can be invoked.
+					A stack has a low requirement for computer hardware, which serves as a strong advantage whilst taking into consideration.
+					The accessibility range of stack is another consideration, as anyone who has access can edit the program.	
+				</p>
+				
+				<h2>Disadvantages</h2>
+				<p>
+					A stack is considered to be of minimal use when compared to other optimal data structures.
+					The inflexibility of a stack and the lack of scalability have deteriorated its use in various applications.
+				</p>
+				</section>
+				
+
+				<section id = "end">
+					<h2>Implementation</h2>
+					<p>
+						As we mentioned above, it is relatively easy to implement a stack due to the limited amount of operations needed.
+					</p>
+					<li><strong>Stack &#60;Object&#62;()</strong></li>
+					<p>
+						Firstly, create a constructor for the stack.
+					</p>
+					
+					<li><strong>push(Object obj)</strong></li>
+					<p>
+						Next, the addition of data into the stack is taking into consideration.
+					</p>
+					
+					<li><strong>pop()</strong></li>
+					<p>
+						Finally, a method to remove elements from the top of the stack must be implemented.
+					</p>
+					<br><br>
+
+					<h2>Pseudocode</h2>
+					<p>
+						The implementation of the above operations differ, depending if the stack is bounded or unbounded.
+						Below is psuedocode for the push and pop elements.
+					</p>
+					
+					<h3>Bounded Push</h3>
+					<pre class="prettyprint">
+push (T t)
+	if size_of_array is greater than or equal to length_of_sequence1
+		sequence2 = new sequence [length_of_sequence1 * 2]
+		copy elements
+		sequence1 = sequence2
+	sequence[size] = t
+	increment size
+					</pre>
+					<script>prettyPrint();</script>
+					<p>The bounded implementation uses an array to hold the elements. If the method detects that there are more elements that space in the array, then it creates a new array with twice as much space as before. Then it copies all the elements from the first array to the new one.</p>
+					<h3>Unbounded Push</h3>
+					<pre class="prettyprint">
+push ( T t ){
+	head = new Node
+	return
+}	
+					</pre>
+					<script>prettyPrint();</script>
+					<p>As you can see, the unbounded implementation is far easier as it used Linked Nodes compared to an Array.</p>
+
+					<h3>Bounded Pop</h3>
+					<pre class = "prettyprint">
+if size is 0
+	return
+else
+	temp = sequence[size]
+	decrement size
+	return sequence [size]							
+					</pre>
+					<script>prettyPrint();</script>
+					<h3>Unbounded Pop</h3>
+					<pre class = "prettyprint">
+if size is 0
+	return
+T = head.item
+head = head.Node
+return							
+					</pre>
+					<script>prettyPrint();</script>
+				</section>
+			</div>
+		</div>
+		
+		<footer role = "Relevant Info and Links" id="footer_Style">
+			<p>
+				<a href = "http://dcu.ie/"><img src="img/dcu_logo.gif" class="footer_logo" align="left"></a>	
+				
+				<a href="index.html">Home</a> | 
+				<a href="pdf/User Manual.pdf">User Manual</a> | 
+				<a href="pdf/Technical Specification.pdf">Technical Specification</a> | 
+				<a href="Contact.html">Contact Us</a>
+				
+				<p>
+					<i>2013 Data Structures Made Easy. Dublin City University, Glasnevin, Dublin 9, Ireland</i>
+				</p>
+			</p>
+		</footer> 
+
+	</body>
+</html>
+   
